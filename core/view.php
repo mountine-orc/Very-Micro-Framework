@@ -3,7 +3,7 @@ namespace Core
 {
     class View
     {
-        function render($viewName, $argumentArray)
+        function render($viewName, $argumentArray = array())
         {
             foreach ($argumentArray as $key => $val)
                 $$key = $val;

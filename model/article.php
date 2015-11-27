@@ -23,7 +23,7 @@ namespace Model
             $stmt = $this->db->prepare('SELECT * FROM article WHERE id = ?');
             $stmt->execute(array($id));
             $result = $stmt->fetchAll();
-    
+
             return $result;
 
         }

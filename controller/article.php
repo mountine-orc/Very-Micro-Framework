@@ -1,10 +1,10 @@
 <?php
 namespace Controller;
 
-class Article{
+class Article extends \Core\AbstractController{
     function __construct(){
         $this->article = new \Model\Article;
-        $this->view = new \Core\View;
+        parent::__construct();
     }
     
     function indexAction(){
@@ -17,8 +17,12 @@ class Article{
     function getAction($id){
         $comment = new \Model\Comment;
         $result   = $this->article->getArticle($id);
-        $comments = $comment->getCommentListByArticleId($id);
         
-        $this->view->render("article", array("result"=>$result, "comments"=>$comments));
+        if (empty($result))
+            $this->pageNotFoundAction();
+        else{
+            $comments = $comment->getCommentListByArticleId($id);
+            $this->view->render("article", array("result"=>$result, "comments"=>$comments));
+        }
     }
 }
