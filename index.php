@@ -2,12 +2,7 @@
 require_once("init.php");
 
 use Core\Router;
-use Core\View;
 
-use Model\Article;
-use Model\Comment;
-
-$view = new View;
 $router = new Router;
 $urlData = $router->getRoute();
 
