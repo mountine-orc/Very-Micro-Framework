@@ -11,7 +11,7 @@ namespace Model
             $this->db = $dataBase->connect();
         }
         
-        function printAllArticles()
+        function getArticleList()
         {
             $result = $this->db->query('SELECT * FROM article');
            

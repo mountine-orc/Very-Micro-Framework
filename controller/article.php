@@ -1,20 +1,23 @@
 <?php
 namespace Controller;
 
-class Article extends \Core\AbstractController{
-    function __construct(){
+class Article extends \Core\AbstractController
+{
+    function __construct()
+    {
         $this->article = new \Model\Article;
         parent::__construct();
     }
     
-    function indexAction(){
-        $article = new Article;
-        $list = $this->article->printAllArticles();
+    function indexAction()
+    {
+        $list = $this->article->getArticleList();
         
         $this->view->render("articleList", array("list"=>$list));
     }
     
-    function getAction($id){
+    function getAction($id)
+    {
         $comment = new \Model\Comment;
         $result   = $this->article->getArticle($id);
         
