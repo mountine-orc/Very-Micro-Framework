@@ -4,12 +4,10 @@ require_once("init.php");
 use Core\Router;
 
 $router = new Router;
-$urlData = $router->getRoute();
+$urlData = $router->getRoute(); //['item', 'action', 'param']
 
-//$urlData["item"]  $urlData["action"]
-$controllerName = 'Controller\\'.$urlData["item"];
-$methodName = "{$urlData["action"]}Action";
+$controllerName = 'Controller\\'.$urlData["item"].'Controller';
+$methodName = $urlData["action"]."Action";
 $controller = new $controllerName();
 $controller->$methodName($urlData["param"]);
 
-//call_user_func( array($controller, $methodName)) ;

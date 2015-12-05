@@ -1,11 +1,14 @@
 <?php
-namespace Controller;
+namespace Controller
 
-class Comment extends \Core\AbstractController
+use Core\AbstractController;
+use Model\Comment;
+
+class CommentController extends AbstractController
 {
     function __construct()
     {
-        $this->comment = new \Model\Comment;
+        $this->comment = new Comment;
         parent::__construct();
     }
     

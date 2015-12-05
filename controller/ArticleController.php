@@ -1,11 +1,14 @@
 <?php
 namespace Controller;
 
-class Article extends \Core\AbstractController
+use Core\AbstractController;
+use Model\Article;
+
+class ArticleController extends AbstractController
 {
     function __construct()
     {
-        $this->article = new \Model\Article;
+        $this->article = new Article;
         parent::__construct();
     }
     
